@@ -1,0 +1,20 @@
+{
+  "80s Digital": [
+    {
+      "name": "Clap 01",
+      "url": "/public/Drumkit-Samples/80s-Digital-kit/80s Digital Clap 01.wav"
+    },
+    {
+      "name": "Hat 02",
+      "url": "/public/Drumkit-Samples/80s-Digital-kit/80s Digital Closed Hat 02.wav"
+    },
+    {
+      "name": "Kick 04",
+      "url": "/public/Drumkit-Samples/80s-Digital-kit/80s Digital Kick 04.wav"
+    },
+    {
+      "name": "Snare 01",
+      "url": "/public/Drumkit-Samples/80s-Digital-kit/80s Digital Snare 01.wav"
+    }
+  ]
+}
