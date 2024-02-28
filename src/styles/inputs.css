@@ -1,0 +1,61 @@
+/*========== Range Start==========*/
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  cursor: pointer;
+  outline: none;
+  overflow: hidden;
+  border-radius: 16px;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  height: 15px;
+  background: #4645458f;
+  border-radius: 16px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 15px;
+  width: 15px;
+
+  border: 2px solid #fefef6ac;
+  border-radius: 50%;
+  box-shadow: -350px 0px 0px 340px var(--bg-color);
+  background: linear-gradient(0deg, #2c3e50 0%, #9b9b9b 100%);
+}
+/*========== Range End==========*/
+
+/*========== CheckBox Start==========*/
+
+input[type="checkbox"] {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+  display: grid;
+  place-content: center;
+  font-size: inherit;
+  background-color: #9c9c98;
+  outline: none;
+  width: 2.5em;
+  height: 4.5em;
+  border: 0.1em solid var(--main-color);
+}
+
+input[type="checkbox"]::before {
+  content: "";
+  background-color: var(--main-color);
+  width: 2em;
+  height: 3.5em;
+  transform: scale(0);
+  transition: 120ms transform ease;
+}
+
+input[type="checkbox"]:checked::before {
+  transform: scale(1);
+  background-color: var(--bg-color);
+}
+
+/*========== CheckBox End==========*/

@@ -1,0 +1,73 @@
+:root {
+  --main-color: #404041;
+  --bg-color: #f6ede3;
+  --border-color: #e1e1e1;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  /* background-image: url("/background.jpg"); */
+  background-color: var(--bg-color);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.steps {
+  display: flex;
+}
+.steps > *:nth-child(4n):not(:last-child) {
+  margin-right: 10px;
+}
+button {
+  border: none;
+}
+
+.drum {
+  display: flex;
+  background-color: var(--main-color);
+  padding: 20px;
+  gap: 20px;
+}
+
+.drum-left {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: center;
+}
+
+/* ! ====== DRUM TOP START ====== */
+button {
+  border: none;
+  background-color: transparent;
+  border-radius: 50%;
+  cursor: pointer;
+  outline: none;
+}
+.top {
+  background-color: var(--main-color);
+  padding: 30px;
+  border-bottom: 1px solid #000;
+}
+
+.btn {
+  background: linear-gradient(0deg, #2c3e50 0%, #9b9b9b 100%);
+  box-shadow: inset 0px 1px 1px #696969, 0px 5px 5px #040404;
+  padding: 8px;
+  position: relative;
+  color: #eee;
+  display: flex;
+}
+
+.btn-pressed {
+  /* background: var(--main-color); */
+  /* background: #009688; */
+  background: linear-gradient(0deg, #2c3e50 0%, #9b9b9b 100%);
+  /* background: linear-gradient(0deg, #009688 0%, #143936 100%); */
+  box-shadow: inset 0px 0px 0px 0px black, inset 0px 0px 3px 1px black;
+}
+
+/* ====== DRUM TOP END ====== */
