@@ -4,12 +4,8 @@ import React, { useEffect, useRef, useState } from "react";
 import SampleName from "./components/SampleName";
 import Button from "./components/Button";
 import Volume from "./components/Volume";
-import KeyboardHandler from "./components/keyboardHandler";
 
 const Drum = ({ samples, numOfStepsSeq }) => {
-  const MAIN_NOTE = "C2";
-
-  const [isPlaying, setIsPlaying] = useState(false);
   const [buttonClick, setButtonClick] = useState(false);
   const elementRef = useRef([]);
 
@@ -36,7 +32,7 @@ const Drum = ({ samples, numOfStepsSeq }) => {
       id: i,
       sampler: new Tone.Sampler({
         urls: {
-          [MAIN_NOTE]: sample.url,
+          ["C2"]: sample.url,
         },
       }).toDestination(),
     }));
@@ -48,7 +44,7 @@ const Drum = ({ samples, numOfStepsSeq }) => {
       (time, step) => {
         tracks.map((trk) => {
           if (elementRef.current[trk.id]?.[step]?.checked) {
-            trk.sampler.triggerAttack(MAIN_NOTE, time);
+            trk.sampler.triggerAttack("C2", time);
           }
         });
       },
@@ -56,8 +52,6 @@ const Drum = ({ samples, numOfStepsSeq }) => {
       "16n"
     ).start(0);
   }, []);
-
-  window.addEventListener("keydown", (e) => KeyboardHandler(e.code));
 
   return (
     <>
