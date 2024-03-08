@@ -12,7 +12,7 @@ const App = () => {
           },
           {
             url: "/Drumkit-Samples/80s-Digital-kit/80s Digital Closed Hat 02.wav",
-            name: "closed Hihat",
+            name: "closed-Hihat",
           },
           {
             url: "/Drumkit-Samples/80s-Digital-kit/80s Digital Snare 01.wav",

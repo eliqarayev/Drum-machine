@@ -1,5 +1,6 @@
 import * as Tone from "tone";
 import { MdOutlineNotStarted } from "react-icons/md";
+import { TbMetronome } from "react-icons/tb";
 import React, { useEffect, useRef, useState } from "react";
 import SampleName from "./components/SampleName";
 import Button from "./components/Button";
@@ -8,7 +9,6 @@ import Volume from "./components/Volume";
 const Drum = ({ samples, numOfStepsSeq }) => {
   const [buttonClick, setButtonClick] = useState(false);
   const elementRef = useRef([]);
-
   const samplesIndex = [...Array(samples.length).keys()];
   const stepSeq = [...Array(numOfStepsSeq).keys()];
   let tracks = [];
@@ -26,6 +26,17 @@ const Drum = ({ samples, numOfStepsSeq }) => {
     }
     setButtonClick(!buttonClick);
   };
+
+  const handleVolumeChange = (index, newVolume) => {
+    tracks[index].sampler.volume.value = newVolume;
+  };
+
+  const handleBPMChange = (newBPM) => {
+    Tone.Transport.bpm.value = newBPM;
+    console.log(Tone.Transport.bpm.value + " bmp");
+  };
+
+  Tone.Transport.bpm.value = 90;
 
   useEffect(() => {
     tracks = samples.map((sample, i) => ({
@@ -51,7 +62,7 @@ const Drum = ({ samples, numOfStepsSeq }) => {
       [...stepSeq],
       "16n"
     ).start(0);
-  }, []);
+  }, [handleVolumeChange]);
 
   return (
     <>
@@ -66,21 +77,37 @@ const Drum = ({ samples, numOfStepsSeq }) => {
           <MdOutlineNotStarted
             style={{
               fontSize: "30px",
-              color: `${buttonClick ? "white" : "white"}
-              `,
+              color: "white",
             }}
           />
         </button>
+        <div className="ranges">
+          <TbMetronome
+            style={{
+              fontSize: "25px",
+              color: "white",
+            }}
+          />
+          <input
+            id="bpm"
+            type="number"
+            min={"50"}
+            max={"190"}
+            defaultValue={"90"}
+            onChange={(e) => handleBPMChange(parseInt(e.target.value))}
+          />
+        </div>
       </div>
       <div className="drum">
         <div className="drum-left">
           {samples.map((sample, i) => (
             <div key={i}>
-              <SampleName sample={sample} />
-              <Volume />
+              <Volume index={i} handleVolumeChange={handleVolumeChange} />
+              {/* <SampleName sample={sample} /> */}
             </div>
           ))}
         </div>
+
         <div className="drum-right">
           {samplesIndex.map((sample, i) => (
             <div key={sample} className="steps">

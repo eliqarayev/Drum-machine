@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap");
 :root {
   --main-color: #404041;
   --bg-color: #f6ede3;
@@ -9,10 +10,11 @@ body {
   align-items: center;
   justify-content: center;
   height: 100vh;
-  /* background-image: url("/background.jpg"); */
   background-color: var(--bg-color);
   background-repeat: no-repeat;
   background-size: cover;
+  /* font-size: 20px; <=== bunu sil */
+  font-family: "Caveat", sans-serif;
 }
 
 .steps {
@@ -35,8 +37,7 @@ button {
 .drum-left {
   display: flex;
   flex-direction: column;
-  gap: 40px;
-  align-items: center;
+  justify-content: space-around;
 }
 
 /* ! ====== DRUM TOP START ====== */
@@ -48,9 +49,19 @@ button {
   outline: none;
 }
 .top {
+  display: flex;
+  gap: 2.5rem;
+  align-items: center;
   background-color: var(--main-color);
   padding: 30px;
   border-bottom: 1px solid #000;
+}
+
+.ranges {
+  gap: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .btn {

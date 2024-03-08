@@ -1,3 +1,16 @@
+label {
+  color: white;
+}
+
+/*========== Number Start==========*/
+input[type="number"] {
+  -webkit-appearance: none;
+  appearance: none;
+  text-align: center;
+  font-size: 18px;
+  padding: 2px;
+}
+
 /*========== Range Start==========*/
 input[type="range"] {
   -webkit-appearance: none;
@@ -10,17 +23,15 @@ input[type="range"] {
 }
 
 input[type="range"]::-webkit-slider-runnable-track {
-  height: 15px;
+  height: 20px;
   background: #4645458f;
-  border-radius: 16px;
 }
 
 input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  height: 15px;
-  width: 15px;
-
+  height: 20px;
+  width: 20px;
   border: 2px solid #fefef6ac;
   border-radius: 50%;
   box-shadow: -350px 0px 0px 340px var(--bg-color);
