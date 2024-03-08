@@ -3,9 +3,9 @@ import { IoVolumeHighOutline } from "react-icons/io5";
 
 const Volume = ({ index, handleVolumeChange }) => {
   return (
-    <div style={{ display: "flex" }}>
-      <span>
-        <IoVolumeHighOutline style={{ color: "white", fontSize: "20px" }} />
+    <div className="volume">
+      <span className="icon">
+        <IoVolumeHighOutline />
       </span>
       <input
         type="range"

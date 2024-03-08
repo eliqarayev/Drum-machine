@@ -4,6 +4,11 @@
   --bg-color: #f6ede3;
   --border-color: #e1e1e1;
 }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 body {
   display: flex;
@@ -40,6 +45,12 @@ button {
   justify-content: space-around;
 }
 
+.volume {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
 /* ! ====== DRUM TOP START ====== */
 button {
   border: none;
@@ -57,7 +68,7 @@ button {
   border-bottom: 1px solid #000;
 }
 
-.ranges {
+.controller {
   gap: 10px;
   display: flex;
   align-items: center;
@@ -74,11 +85,13 @@ button {
 }
 
 .btn-pressed {
-  /* background: var(--main-color); */
-  /* background: #009688; */
   background: linear-gradient(0deg, #2c3e50 0%, #9b9b9b 100%);
-  /* background: linear-gradient(0deg, #009688 0%, #143936 100%); */
   box-shadow: inset 0px 0px 0px 0px black, inset 0px 0px 3px 1px black;
 }
 
+.icon {
+  color: white;
+  margin-top: 8px;
+  font-size: 25px;
+}
 /* ====== DRUM TOP END ====== */

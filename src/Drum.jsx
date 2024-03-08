@@ -1,8 +1,8 @@
 import * as Tone from "tone";
 import { MdOutlineNotStarted } from "react-icons/md";
 import { TbMetronome } from "react-icons/tb";
+import { ImVolumeHigh } from "react-icons/im";
 import React, { useEffect, useRef, useState } from "react";
-import SampleName from "./components/SampleName";
 import Button from "./components/Button";
 import Volume from "./components/Volume";
 
@@ -12,6 +12,7 @@ const Drum = ({ samples, numOfStepsSeq }) => {
   const samplesIndex = [...Array(samples.length).keys()];
   const stepSeq = [...Array(numOfStepsSeq).keys()];
   let tracks = [];
+  Tone.Transport.bpm.value = 90;
 
   if (Tone.context.state !== "running") {
     Tone.context.resume();
@@ -32,11 +33,16 @@ const Drum = ({ samples, numOfStepsSeq }) => {
   };
 
   const handleBPMChange = (newBPM) => {
+    if (!newBPM) {
+      Tone.Transport.bpm.value = 90;
+      return;
+    }
     Tone.Transport.bpm.value = newBPM;
-    console.log(Tone.Transport.bpm.value + " bmp");
   };
 
-  Tone.Transport.bpm.value = 90;
+  const handleMasterVolumeChange = (newVol) => {
+    Tone.Destination.volume.value = newVol;
+  };
 
   useEffect(() => {
     tracks = samples.map((sample, i) => ({
@@ -81,13 +87,10 @@ const Drum = ({ samples, numOfStepsSeq }) => {
             }}
           />
         </button>
-        <div className="ranges">
-          <TbMetronome
-            style={{
-              fontSize: "25px",
-              color: "white",
-            }}
-          />
+        <div className="controller">
+          <span className="icon">
+            <TbMetronome />
+          </span>
           <input
             id="bpm"
             type="number"
@@ -95,6 +98,16 @@ const Drum = ({ samples, numOfStepsSeq }) => {
             max={"190"}
             defaultValue={"90"}
             onChange={(e) => handleBPMChange(parseInt(e.target.value))}
+          />
+          <span className="icon">
+            <ImVolumeHigh />
+          </span>
+          <input
+            type="range"
+            min={-20}
+            max={10}
+            defaultValue={0}
+            onClick={(e) => handleMasterVolumeChange(parseInt(e.target.value))}
           />
         </div>
       </div>
