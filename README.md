@@ -12,3 +12,5 @@ Clone, `cd` into this repo, then:
 # run local dev server
     npm run dev
 ```
+
+![drum-machine-screenshot](https://github.com/rhy6x/Drum-machine/assets/131586412/cfa4d6ff-07fa-48a3-82ea-d98a8bd865bd)
